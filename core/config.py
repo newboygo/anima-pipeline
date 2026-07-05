@@ -203,7 +203,11 @@ def detect_os_ui_lang() -> str:
                     lang_name = locale.windows_locale.get(lang_id, '')
                     if lang_name:
                         lang_name = lang_name.lower()
-                        return 'ja' if lang_name.startswith('ja') else 'en'
+                        if lang_name.startswith('ja'):
+                            return 'ja'
+                        if lang_name.startswith('zh'):
+                            return 'zh'
+                        return 'en'
                 except Exception:
                     pass
         except Exception:
@@ -218,7 +222,11 @@ def detect_os_ui_lang() -> str:
         except Exception:
             lang = None
     lang = (lang or '').lower()
-    return 'ja' if lang.startswith('ja') else 'en'
+    if lang.startswith('ja'):
+        return 'ja'
+    if lang.startswith('zh'):
+        return 'zh'
+    return 'en'
 
 
 def load_style_tags():

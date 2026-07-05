@@ -1,6 +1,8 @@
 ﻿{
   "name": "Anima Pipeline",
   "short_name": "Anima Pipeline",
+  "description": "ComfyUI character image generation automation tool | AI角色图片生成自动化工具",
+  "lang": "ja",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#0f1419",

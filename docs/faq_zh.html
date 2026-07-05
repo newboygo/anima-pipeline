@@ -1,92 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FAQ - Anima Pipeline</title>
-<meta name="description" content="Frequently asked questions for Anima Pipeline: setup, ComfyUI connection, LLM settings, network access, and troubleshooting.">
-<link rel="canonical" href="https://tomotto1296.github.io/anima-pipeline/faq_en.html">
+<title>常见问题 - Anima Pipeline</title>
+<meta name="description" content="Anima Pipeline常见问题：安装设置、ComfyUI连接、LLM配置、网络访问及故障排除。">
+<link rel="canonical" href="https://tomotto1296.github.io/anima-pipeline/faq_zh.html">
 <meta property="og:site_name" content="Anima Pipeline">
-<meta property="og:title" content="FAQ - Anima Pipeline">
-<meta property="og:description" content="Frequently asked questions for Anima Pipeline: setup, ComfyUI connection, LLM settings, network access, and troubleshooting.">
+<meta property="og:title" content="常见问题 - Anima Pipeline">
+<meta property="og:description" content="Anima Pipeline常见问题：安装设置、ComfyUI连接、LLM配置、网络访问及故障排除。">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://tomotto1296.github.io/anima-pipeline/faq_en.html">
-<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://tomotto1296.github.io/anima-pipeline/faq_zh.html">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FAQ - Anima Pipeline">
-<meta name="twitter:description" content="Setup and troubleshooting FAQ for Anima Pipeline.">
+<meta name="twitter:title" content="常见问题 - Anima Pipeline">
+<meta name="twitter:description" content="Anima Pipeline安装与故障排除常见问题。">
 <meta name="twitter:site" content="@RHU_AIstudio">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "name": "Anima Pipeline FAQ (English)",
-  "url": "https://tomotto1296.github.io/anima-pipeline/faq_en.html",
+  "name": "Anima Pipeline 常见问题（中文）",
+  "url": "https://tomotto1296.github.io/anima-pipeline/faq_zh.html",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What do I need before the first launch?",
+      "name": "首次启动前需要准备什么？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You need Python 3.10+ and ComfyUI with an Anima workflow. Then install dependencies with pip install -r requirements.txt."
+        "text": "需要Python 3.10+及ComfyUI（含Anima工作流）。然后使用pip install -r requirements.txt安装依赖。"
       }
     },
     {
       "@type": "Question",
-      "name": "Why is the page not opening in my browser?",
+      "name": "为什么浏览器打不开页面？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Open http://localhost:7860 (not https). Also make sure the terminal shows the app started successfully."
+        "text": "请打开http://localhost:7860（注意是http不是https）。同时确认终端显示应用已成功启动。"
       }
     },
     {
       "@type": "Question",
-      "name": "How do I fix ComfyUI connection errors?",
+      "name": "如何解决ComfyUI连接错误？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Check ComfyUI URL (usually http://127.0.0.1:8188), confirm ComfyUI is running, and run Setup Diagnostics in the app."
+        "text": "检查ComfyUI地址（通常为http://127.0.0.1:8188），确认ComfyUI正在运行，然后在应用中运行设置诊断。"
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use Anima Pipeline without an LLM?",
+      "name": "可以不使用LLM吗？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. You can enter tags manually and generate images without any LLM configuration."
+        "text": "可以，你可以手动输入标签并生成图片，无需任何LLM配置。"
       }
     },
     {
       "@type": "Question",
-      "name": "Which LLM backends are supported?",
+      "name": "支持哪些LLM后端？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Gemini API, LM Studio, and OpenAI-compatible APIs are supported."
+        "text": "支持Gemini API、LM Studio及兼容OpenAI的API接口。"
       }
     },
     {
       "@type": "Question",
-      "name": "Can I access it from iPhone or iPad?",
+      "name": "可以用iPhone或iPad访问吗？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, on the same Wi-Fi. Launch ComfyUI with --listen --enable-cors-header and access http://<your-pc-ip>:7860 from mobile."
+        "text": "可以，在同一WiFi下即可。ComfyUI需添加--listen --enable-cors-header参数启动，然后从手机访问http://<你的电脑IP>:7860。"
       }
     },
     {
       "@type": "Question",
-      "name": "Where are generation history and thumbnails saved?",
+      "name": "生成历史和缩略图保存在哪里？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "History is stored in history/history.db and thumbnails in history/thumbs by default."
+        "text": "历史记录默认保存在history/history.db，缩略图保存在history/thumbs目录。"
       }
     },
     {
       "@type": "Question",
-      "name": "Where should I report bugs?",
+      "name": "在哪里报告Bug？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Please open an issue on GitHub: https://github.com/tomotto1296/anima-pipeline/issues"
+        "text": "请在GitHub提交Issue：https://github.com/tomotto1296/anima-pipeline/issues"
       }
     }
   ]
@@ -266,179 +267,179 @@
     </div>
     <nav>
       <ul class="nav-links">
-        <li><a href="index_en.html#howto">How it works</a></li>
-        <li><a href="index_en.html#features">Features</a></li>
-        <li><a href="index_en.html#setup">Setup</a></li>
-        <li><a href="index_en.html#gallery">Gallery</a></li>
-        <li><a href="faq_en.html" style="color: var(--accent);">FAQ</a></li>
-        <li><a href="faq.html" class="nav-lang-btn">Japanese</a></li>
-        <li><a href="faq_zh.html" class="nav-lang-btn">中文</a></li>
+        <li><a href="index_zh.html#howto">使用方法</a></li>
+        <li><a href="index_zh.html#features">功能特点</a></li>
+        <li><a href="index_zh.html#setup">安装设置</a></li>
+        <li><a href="index_zh.html#gallery">生成示例</a></li>
+        <li><a href="faq_zh.html" style="color: var(--accent);">FAQ</a></li>
+        <li><a href="faq.html" class="nav-lang-btn">日本語</a></li>
+        <li><a href="faq_en.html" class="nav-lang-btn">English</a></li>
         <li><a href="https://github.com/tomotto1296/anima-pipeline" target="_blank" class="nav-gh-btn">GitHub</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<nav class="faq-breadcrumb" aria-label="Breadcrumb">
-  <a href="index_en.html">Home</a><span>/</span><span>FAQ</span>
+<nav class="faq-breadcrumb" aria-label="面包屑导航">
+  <a href="index_zh.html">首页</a><span>/</span><span>常见问题</span>
 </nav>
 
 <section class="faq-hero">
   <div class="sec-label">FAQ</div>
-  <h1 class="sec-title">Frequently Asked Questions</h1>
+  <h1 class="sec-title">常见问题</h1>
   <p class="sec-sub">
-    Common questions about setup, ComfyUI connection, LLM settings, and troubleshooting.
-    If your issue is not listed, please open a <a href="https://github.com/tomotto1296/anima-pipeline/issues" target="_blank">GitHub Issue</a>.
+    关于安装设置、ComfyUI连接、LLM配置及故障排除的常见问题解答。
+    如果你的问题未列出，请在 <a href="https://github.com/tomotto1296/anima-pipeline/issues" target="_blank">GitHub Issue</a> 提交反馈。
   </p>
 </section>
 
 <main class="faq-body">
   <div class="faq-cat">
     <span class="faq-cat-icon">🔧</span>
-    <span class="faq-cat-name">Setup & Launch</span>
+    <span class="faq-cat-name">安装与启动</span>
     <span class="faq-cat-count">2</span>
   </div>
 
   <details class="faq-item" open>
     <summary>
       <span class="faq-q-badge">Q</span>
-      <span class="faq-q-text">What do I need before the first launch?</span>
+      <span class="faq-q-text">首次启动前需要准备什么？</span>
       <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </summary>
     <div class="faq-answer">
-      Install Python 3.10+ and dependencies with <code>pip install -r requirements.txt</code>.
-      Also prepare a working ComfyUI setup and an Anima workflow JSON.
+      安装Python 3.10+，然后使用 <code>pip install -r requirements.txt</code> 安装依赖。
+      同时准备好可运行的ComfyUI环境及Anima工作流JSON文件。
     </div>
   </details>
 
   <details class="faq-item">
     <summary>
       <span class="faq-q-badge">Q</span>
-      <span class="faq-q-text">Why is the app not opening in browser?</span>
+      <span class="faq-q-text">为什么浏览器打不开应用？</span>
       <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </summary>
     <div class="faq-answer">
-      Open <code>http://localhost:7860</code> (not HTTPS). Check terminal logs and ensure the launcher finished without errors.
+      请访问 <code>http://localhost:7860</code>（注意是HTTP不是HTTPS）。检查终端日志，确认启动过程无错误。
     </div>
   </details>
 
   <div class="faq-cat">
     <span class="faq-cat-icon">⚙️</span>
-    <span class="faq-cat-name">ComfyUI Integration</span>
+    <span class="faq-cat-name">ComfyUI集成</span>
     <span class="faq-cat-count">1</span>
   </div>
 
   <details class="faq-item">
     <summary>
       <span class="faq-q-badge">Q</span>
-      <span class="faq-q-text">How do I fix ComfyUI connection errors?</span>
+      <span class="faq-q-text">如何解决ComfyUI连接错误？</span>
       <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </summary>
     <div class="faq-answer">
-      Verify ComfyUI is running and set the URL correctly (usually <code>http://127.0.0.1:8188</code>).
-      Then run setup diagnostics from the app settings.
+      确认ComfyUI正在运行，并正确设置了地址（通常为 <code>http://127.0.0.1:8188</code>）。
+      然后在应用设置中运行设置诊断工具。
     </div>
   </details>
 
   <div class="faq-cat">
     <span class="faq-cat-icon">🤖</span>
-    <span class="faq-cat-name">LLM Integration</span>
+    <span class="faq-cat-name">LLM集成</span>
     <span class="faq-cat-count">2</span>
   </div>
 
   <details class="faq-item">
     <summary>
       <span class="faq-q-badge">Q</span>
-      <span class="faq-q-text">Can I use it without an LLM?</span>
+      <span class="faq-q-text">可以不使用LLM吗？</span>
       <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </summary>
     <div class="faq-answer">
-      Yes. You can manually input prompt tags and generate images without LLM integration.
+      可以。你可以手动输入提示词标签并生成图片，无需LLM集成。
     </div>
   </details>
 
   <details class="faq-item">
     <summary>
       <span class="faq-q-badge">Q</span>
-      <span class="faq-q-text">Which LLM providers are supported?</span>
+      <span class="faq-q-text">支持哪些LLM服务商？</span>
       <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </summary>
     <div class="faq-answer">
-      Gemini API, LM Studio, and OpenAI-compatible API endpoints are supported.
+      支持Gemini API、LM Studio以及兼容OpenAI的API接口。
     </div>
   </details>
 
   <div class="faq-cat">
     <span class="faq-cat-icon">📱</span>
-    <span class="faq-cat-name">Mobile / Remote Access</span>
+    <span class="faq-cat-name">移动端/远程访问</span>
     <span class="faq-cat-count">1</span>
   </div>
 
   <details class="faq-item">
     <summary>
       <span class="faq-q-badge">Q</span>
-      <span class="faq-q-text">How can I use it from iPhone or iPad?</span>
+      <span class="faq-q-text">如何用iPhone或iPad访问？</span>
       <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </summary>
     <div class="faq-answer">
-      Connect both devices to the same network, launch ComfyUI with
-      <code>--listen --enable-cors-header</code>, and open
-      <code>http://&lt;your-pc-ip&gt;:7860</code> on mobile.
+      将两台设备连接到同一网络，启动ComfyUI时添加参数
+      <code>--listen --enable-cors-header</code>，然后在手机浏览器中打开
+      <code>http://&lt;你的电脑IP&gt;:7860</code>。
     </div>
   </details>
 
   <div class="faq-cat">
     <span class="faq-cat-icon">🕒</span>
-    <span class="faq-cat-name">History & Gallery</span>
+    <span class="faq-cat-name">历史与画廊</span>
     <span class="faq-cat-count">1</span>
   </div>
 
   <details class="faq-item">
     <summary>
       <span class="faq-q-badge">Q</span>
-      <span class="faq-q-text">Where are history and thumbnails stored?</span>
+      <span class="faq-q-text">生成历史和缩略图保存在哪里？</span>
       <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </summary>
     <div class="faq-answer">
-      Generation history: <code>history/history.db</code><br>
-      Thumbnails: <code>history/thumbs/</code>
+      生成历史：<code>history/history.db</code><br>
+      缩略图：<code>history/thumbs/</code>
     </div>
   </details>
 
   <div class="faq-cat">
     <span class="faq-cat-icon">📌</span>
-    <span class="faq-cat-name">Other</span>
+    <span class="faq-cat-name">其他</span>
     <span class="faq-cat-count">1</span>
   </div>
 
   <details class="faq-item">
     <summary>
       <span class="faq-q-badge">Q</span>
-      <span class="faq-q-text">Where should I report bugs or request features?</span>
+      <span class="faq-q-text">在哪里报告Bug或提出功能建议？</span>
       <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </summary>
     <div class="faq-answer">
-      Open an issue on GitHub: <a href="https://github.com/tomotto1296/anima-pipeline/issues" target="_blank">https://github.com/tomotto1296/anima-pipeline/issues</a>
+      在GitHub提交Issue：<a href="https://github.com/tomotto1296/anima-pipeline/issues" target="_blank">https://github.com/tomotto1296/anima-pipeline/issues</a>
     </div>
   </details>
 </main>
 
 <section class="cta-sec">
   <div class="inner">
-    <h2 class="cta-title">Need more help?</h2>
+    <h2 class="cta-title">需要更多帮助？</h2>
     <p class="cta-sub">
-      If the problem continues, share logs and screenshots in a GitHub issue.
+      如果问题仍然存在，请在GitHub Issue中分享日志和截图。
     </p>
     <div class="cta-btns">
-      <a href="https://github.com/tomotto1296/anima-pipeline/issues" target="_blank" class="btn-primary" style="min-width: 220px; text-align: center;">Open Issue</a>
-      <a href="guides/anima_pipeline_guide_en.md" class="btn-secondary" style="min-width: 220px; text-align: center;">User Guide</a>
-      <a href="index_en.html" class="btn-secondary" style="min-width: 220px; text-align: center;">Back to Top</a>
+      <a href="https://github.com/tomotto1296/anima-pipeline/issues" target="_blank" class="btn-primary" style="min-width: 220px; text-align: center;">提交Issue</a>
+      <a href="guides/anima_pipeline_guide_en.md" class="btn-secondary" style="min-width: 220px; text-align: center;">使用指南</a>
+      <a href="index_zh.html" class="btn-secondary" style="min-width: 220px; text-align: center;">返回首页</a>
     </div>
   </div>
 </section>
 
 <footer class="site-footer">
-  <p>&copy; 2026 <a href="https://github.com/tomotto1296" target="_blank">tomotto1296</a> - Anima Pipeline is released under the MIT License</p>
+  <p>&copy; 2026 <a href="https://github.com/tomotto1296" target="_blank">tomotto1296</a> - Anima Pipeline 基于MIT许可证发布</p>
 </footer>
 
 </body>

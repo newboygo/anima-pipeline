@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anima Pipeline | 浏览器UI自动化Anima工作流</title>
+<meta name="description" content="只需输入角色名称，LLM自动生成Danbooru标签并发送到你的ComfyUI Anima工作流。一个Python脚本，Windows上即开即用。">
+<meta property="og:title" content="Anima Pipeline | 浏览器UI自动化Anima工作流">
+<meta property="og:description" content="只需输入角色名称，LLM自动生成Danbooru标签并发送到你的ComfyUI Anima工作流。一个Python脚本，Windows上即开即用。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tomotto1296.github.io/anima-pipeline/index_zh.html">
+<meta property="og:site_name" content="Anima Pipeline">
+<meta property="og:image" content="https://tomotto1296.github.io/anima-pipeline/images/hero-ui-and-result-card-1200x630.jpg">
+<meta property="og:image:secure_url" content="https://tomotto1296.github.io/anima-pipeline/images/hero-ui-and-result-card-1200x630.jpg">
+<meta property="og:image:alt" content="Anima Pipeline浏览器界面及生成图片预览">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anima Pipeline | 浏览器UI自动化Anima工作流">
+<meta name="twitter:description" content="只需输入角色名称，LLM自动生成Danbooru标签并发送到你的ComfyUI Anima工作流。一个Python脚本，Windows上即开即用。">
+<meta name="twitter:image" content="https://tomotto1296.github.io/anima-pipeline/images/hero-ui-and-result-card-1200x630.jpg">
+<meta name="twitter:image:alt" content="Anima Pipeline浏览器界面及生成图片预览">
+<meta name="twitter:site" content="@RHU_AIstudio">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Anima Pipeline",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Windows",
+  "url": "https://tomotto1296.github.io/anima-pipeline/",
+  "description": "只需输入角色名称，LLM自动生成Danbooru标签并发送到你的ComfyUI Anima工作流。一个Python脚本，Windows上即开即用。",
+  "inLanguage": ["ja", "en", "zh"],
+  "author": {
+    "@type": "Person",
+    "name": "RHU",
+    "url": "https://github.com/tomotto1296"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://github.com/tomotto1296/anima-pipeline/releases/latest"
+  }
+}
+</script>
+<link rel="canonical" href="https://tomotto1296.github.io/anima-pipeline/index_zh.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPMJG9G12Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPMJG9G12Q');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/x-icon" href="assets/favicon-light.ico">
+<link rel="icon" type="image/x-icon" href="assets/favicon-dark.ico" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-logo">
+      <div class="logo-dot"></div>
+      Anima Pipeline
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#howto">使用方法</a></li>
+        <li><a href="#features">功能特点</a></li>
+        <li><a href="#setup">安装设置</a></li>
+        <li><a href="#gallery">生成示例</a></li>
+        <li><a href="faq_zh.html">FAQ</a></li>
+        <li><a href="index.html" class="nav-lang-btn">日本語</a></li>
+        <li><a href="index_en.html" class="nav-lang-btn">English</a></li>
+        <li><a href="https://github.com/tomotto1296/anima-pipeline" target="_blank" class="nav-gh-btn">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="inner">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      v1.5.20
+    </div>
+    <h1 class="hero-title">输入角色名称，<em>Anima图片自动生成</em></h1>
+    <p class="hero-sub">只需一个Python脚本。Windows上双击即可运行。支持同WiFi下手机/平板操作。无需LLM也能使用。</p>
+    <div class="flow-row">
+      <div class="flow-chip">输入角色</div>
+      <div class="flow-arr">&rarr;</div>
+      <div class="flow-chip">LLM生成标签</div>
+      <div class="flow-arr">&rarr;</div>
+      <div class="flow-chip">发送至ComfyUI</div>
+      <div class="flow-arr">&rarr;</div>
+      <div class="flow-chip">图片完成</div>
+    </div>
+    <div class="hero-actions">
+      <a href="https://github.com/tomotto1296/anima-pipeline/releases/latest" target="_blank" class="btn-primary js-github-download">在GitHub下载</a>
+      <a href="https://github.com/tomotto1296/anima-pipeline/releases/latest" target="_blank" class="btn-secondary js-version-zip-download">下载版本ZIP</a>
+      <a href="guides/anima_pipeline_guide_en.md" class="btn-secondary">使用指南</a>
+      <a href="demo_en.html" class="btn-secondary">演示</a>
+    </div>
+  </div>
+  <div class="hero-img-wrap">
+    <img src="images/hero-ui-and-result.jpg" alt="Anima Pipeline浏览器界面及生成图片">
+    <div class="hero-caption">浏览器界面（左）与生成的Anima图片（右）</div>
+  </div>
+</section>
+
+<section class="sec sec-bg2" id="howto">
+  <div class="inner">
+    <div class="sec-label">流程</div>
+    <h2 class="sec-title">四步生成图片</h2>
+    <p class="sec-sub">自动化浏览器UI与ComfyUI之间的衔接。极简设置即可开始使用。</p>
+    <div class="flow-cards">
+      <div class="flow-card">
+        <div class="fc-num">1</div>
+        <div class="fc-title">输入角色与场景</div>
+        <div class="fc-desc">在UI中输入角色详情、氛围和风格。支持日文输入。</div>
+        <div class="fc-tag">浏览器UI</div>
+      </div>
+      <div class="flow-card">
+        <div class="fc-num">2</div>
+        <div class="fc-title">LLM生成标签</div>
+        <div class="fc-desc">根据角色名称自动生成Danbooru风格标签。也可手动编辑。</div>
+        <div class="fc-tag fc-tag-opt">可选</div>
+      </div>
+      <div class="flow-card">
+        <div class="fc-num">3</div>
+        <div class="fc-title">自动发送至ComfyUI</div>
+        <div class="fc-desc">提示词自动提交到ComfyUI API，触发工作流执行。</div>
+        <div class="fc-tag">自动化</div>
+      </div>
+      <div class="flow-card">
+        <div class="fc-num">4</div>
+        <div class="fc-title">浏览器中查看结果</div>
+        <div class="fc-desc">生成结果在浏览器内置画廊中展示。支持一键保存或重新生成。</div>
+        <div class="fc-tag">画廊</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="features">
+  <div class="inner">
+    <div class="sec-label">功能</div>
+    <h2 class="sec-title">核心功能</h2>
+    <p class="sec-sub">专为Windows打造，兼顾移动端访问与扩展性。</p>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-icon">AI</div>
+        <div class="feat-title">LLM标签自动生成</div>
+        <div class="feat-body">支持Gemini API、LM Studio以及任何兼容OpenAI的API。从角色名自然生成标签。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">L4</div>
+        <div class="feat-title">LoRA最多4个插槽</div>
+        <div class="feat-body">带缩略图预览的卡片式LoRA选择界面。自动与工作流JSON同步。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">CH</div>
+        <div class="feat-title">多角色管理</div>
+        <div class="feat-body">保存并切换角色预设。最多可同时配置6个角色。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">NET</div>
+        <div class="feat-title">手机平板支持</div>
+        <div class="feat-body">同一WiFi下可从iPhone/iPad操作。ComfyUI需添加<code>--listen</code>参数。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">UI</div>
+        <div class="feat-title">日/英/中 三语切换 <span class="tag-new">v1.5.22</span></div>
+        <div class="feat-body">首次启动时自动检测系统语言。可在日文、英文、中文之间随时切换。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">LOG</div>
+        <div class="feat-title">日志脱敏 <span class="tag-new">v1.4.7</span></div>
+        <div class="feat-body">API密钥和敏感数据在日志中被遮蔽。支持安全导出ZIP用于分享或调试。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">HIS</div>
+        <div class="feat-title">生成历史 <span class="tag-new">v1.5.1</span></div>
+        <div class="feat-body">所有生成记录存入数据库。可重新打开过去的生成结果、微调提示词后重新生成。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">PR</div>
+        <div class="feat-title">预设层级管理 <span class="tag-new">v1.5.1</span></div>
+        <div class="feat-body">分离角色、场景、镜头、品质、LoRA及合成预设。可自由组合搭配。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">DX</div>
+        <div class="feat-title">设置诊断工具 <span class="tag-new">v1.5.1</span></div>
+        <div class="feat-body">内置自检UI可检测ComfyUI和LLM的连接问题。无需查看日志即可排错。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-bg2" id="setup">
+  <div class="inner">
+    <div class="sec-label">安装</div>
+    <h2 class="sec-title">5分钟快速上手</h2>
+    <p class="sec-sub">Windows用户只需双击 <code>start_anima_pipeline.bat</code>。</p>
+    <div class="setup-grid">
+      <div class="steps">
+        <div class="step-row">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-head">从ComfyUI导出工作流JSON</div>
+            <div class="step-body">浏览 Templates &gt; Anima &gt; Save (API格式)，然后将文件放入 <code>workflows/</code> 目录。</div>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-head">运行批处理文件</div>
+            <div class="step-body">双击 <code>start_anima_pipeline.bat</code>。首次运行将自动安装依赖。</div>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-head">打开 localhost:7860</div>
+            <div class="step-body">在浏览器中打开UI，设置ComfyUI地址和LLM配置，然后保存。</div>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num">4</div>
+          <div>
+            <div class="step-head">输入角色并开始生成</div>
+            <div class="step-body">按Ctrl+Enter开始生成。结果会立即显示在界面中。</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="mock-win">
+          <div class="mock-titlebar">
+            <div class="mock-tb-left">
+              <div class="mock-favicon"><div class="mock-favicon-dot"></div></div>
+              <div class="mock-urlbar">localhost:7860</div>
+            </div>
+            <div class="mock-winbtns">
+              <div class="mock-winbtn">
+                <svg viewBox="0 0 10 1"><rect width="10" height="1" fill="#555"></rect></svg>
+              </div>
+              <div class="mock-winbtn">
+                <svg viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="#555" stroke-width="1"></rect></svg>
+              </div>
+              <div class="mock-winbtn">
+                <svg viewBox="0 0 10 10">
+                  <line x1="1" y1="1" x2="9" y2="9" stroke="#555" stroke-width="1.3"></line>
+                  <line x1="9" y1="1" x2="1" y2="9" stroke="#555" stroke-width="1.3"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-lbl">角色名称（输入示例）</div>
+            <div class="mock-field mock-field-blue">
+              <span>博丽灵梦、在神社放松</span>
+              <span class="llm-badge">LLM</span>
+            </div>
+            <div class="mock-lbl">生成的标签（示例）</div>
+            <div class="mock-field mock-field-green">
+              <div class="mock-tags">
+                <span class="mock-tag">1girl</span>
+                <span class="mock-tag">hakurei reimu</span>
+                <span class="mock-tag">red bow</span>
+                <span class="mock-tag">shrine</span>
+                <span class="mock-tag">relaxed</span>
+              </div>
+            </div>
+            <div class="mock-gen-btn">生成（Ctrl+Enter）</div>
+            <div class="mock-prog-wrap"><div class="mock-prog"></div></div>
+            <div class="mock-hint">ComfyUI运行中... 62%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="gallery">
+  <div class="inner">
+    <div class="sec-label">画廊</div>
+    <h2 class="sec-title">生成效果示例</h2>
+    <p class="sec-sub">使用Anima Pipeline及以下角色与场景生成。</p>
+    <div class="gallery-grid">
+      <div class="gal-card">
+        <img src="images/reimu-shrine-relax.png" alt="博丽灵梦 - 在神社放松">
+        <div class="gal-meta">
+          <div class="gal-name">博丽灵梦</div>
+          <div class="gal-scene">东方Project / 在神社放松</div>
+        </div>
+      </div>
+      <div class="gal-card">
+        <img src="images/sample_zundamon.png" alt="豆打餅 - 在咖啡馆休息">
+        <div class="gal-meta">
+          <div class="gal-name">豆打餅</div>
+          <div class="gal-scene">VOICEVOX / 在咖啡馆休息</div>
+        </div>
+      </div>
+      <div class="gal-card">
+        <div class="gal-placeholder">
+          <div class="gal-plus">+</div>
+          <div class="gal-placeholder-text">你的生成图片将在这里展示</div>
+        </div>
+        <div class="gal-meta">
+          <div class="gal-name" style="color: var(--txt3);">欢迎投稿</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-bg2">
+  <div class="inner">
+    <div class="sec-label">要求</div>
+    <h2 class="sec-title">所需环境</h2>
+    <p class="sec-sub">最低要求：ComfyUI + Python（系统Python或内置Python均可）。LLM为可选。</p>
+    <div class="req-grid">
+      <div class="req-card">
+        <div class="req-name">Python</div>
+        <div class="req-ver">3.10+（或内置）</div>
+        <div class="req-desc">如果内置了 <code>python_embeded/python.exe</code>，则无需系统Python。</div>
+      </div>
+      <div class="req-card">
+        <div class="req-name">ComfyUI</div>
+        <div class="req-ver">0.16.4 或更高版本</div>
+        <div class="req-desc">需要可用的Anima工作流。内置4个工作流模板（Anima1/2，带/不带LoRA x4）。移动端访问需添加 <code>--listen --enable-cors-header</code>。</div>
+      </div>
+      <div class="req-card">
+        <div class="req-name">LLM服务</div>
+        <div class="req-ver req-ver-opt">可选</div>
+        <div class="req-desc">支持Gemini API / LM Studio / 任何兼容OpenAI的API。</div>
+        <div class="req-opt">不使用LLM也能工作 - 直接手动输入标签即可</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="inner">
+    <div class="sec-label">视频</div>
+    <h2 class="sec-title">介绍视频</h2>
+    <p class="sec-sub">快速了解Anima Pipeline的功能和使用方法。</p>
+    <div style="position: relative; width: 100%; max-width: 960px; margin: 0 auto; padding-top: 56.25%; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.18);">
+      <iframe
+        src="https://www.youtube.com/embed/DuQpBQhlbYE?si=7TmR9YavINufekAC"
+        title="YouTube视频播放器"
+        style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="inner">
+    <h2 class="cta-title">立即开始</h2>
+    <p class="cta-sub">
+      从GitHub下载，5分钟生成你的第一张图片。<br>
+      问题报告请通过 <a href="https://github.com/tomotto1296/anima-pipeline/issues" target="_blank">Issue</a>。最新动态关注 <a href="https://x.com/RHU_AIstudio" target="_blank">X</a>。
+    </p>
+    <div class="cta-btns">
+      <a href="https://github.com/tomotto1296/anima-pipeline/releases/latest" target="_blank" class="btn-primary js-github-download" style="min-width: 260px; text-align: center;">在GitHub下载</a>
+      <a href="https://github.com/tomotto1296/anima-pipeline/releases/latest" target="_blank" class="btn-secondary js-version-zip-download" style="min-width: 260px; text-align: center;">下载版本ZIP</a>
+      <a href="guides/anima_pipeline_guide_en.md" class="btn-secondary" style="min-width: 260px; text-align: center;">使用指南（英文）</a>
+      <a href="index.html" class="btn-secondary" style="min-width: 260px; text-align: center;">日文页面</a>
+    </div>
+    <div class="cta-links">
+      <a href="https://note.com/rhustudio/n/nf0dc2414f852" target="_blank" class="cta-link">note</a>
+      <a href="https://qiita.com/RHU/items/18095cb22281cd027bc4" target="_blank" class="cta-link">Qiita</a>
+      <a href="https://zenn.dev/rhu/articles/anima-pipeline-comfyui-llm" target="_blank" class="cta-link">Zenn</a>
+      <a href="https://x.com/RHU_AIstudio" target="_blank" class="cta-link">X @RHU_AIstudio</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>&copy; 2026 <a href="https://github.com/tomotto1296" target="_blank">tomotto1296</a> - Anima Pipeline 基于MIT许可证发布</p>
+</footer>
+
+<script>
+  (function () {
+    const registerDownloadClickMetrics = (selector, downloadType) => {
+      document.querySelectorAll(selector).forEach((link) => {
+        link.addEventListener('click', () => {
+          if (typeof window.gtag !== 'function') return;
+
+          const section = link.closest('.hero-actions')
+            ? 'hero'
+            : link.closest('.cta-btns')
+              ? 'cta'
+              : 'other';
+
+          window.gtag('event', 'download_button_click', {
+            download_type: downloadType,
+            section: section,
+            link_url: link.href
+          });
+        });
+      });
+    };
+
+    const versionBadge = document.querySelector('.hero-badge');
+    if (!versionBadge) return;
+
+    const versionMatch = versionBadge.textContent.match(/v?(\d+\.\d+(?:\.\d+)?)/i);
+    if (!versionMatch) return;
+
+    const version = versionMatch[1];
+    const assetName = `anima-pipeline_v${version}_minimal.zip`;
+    const releaseUrl = `https://github.com/tomotto1296/anima-pipeline/releases/download/v${version}/${assetName}`;
+
+    document.querySelectorAll('.js-version-zip-download').forEach((link) => {
+      link.href = releaseUrl;
+      link.setAttribute('download', assetName);
+    });
+
+    registerDownloadClickMetrics('.js-github-download', 'github_release_page');
+    registerDownloadClickMetrics('.js-version-zip-download', 'version_zip');
+  })();
+</script>
+
+</body>
+</html>
