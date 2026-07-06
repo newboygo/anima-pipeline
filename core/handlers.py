@@ -1,4 +1,13 @@
 from http.server import BaseHTTPRequestHandler
+import urllib.request as _ureq_mod
+
+def _comfy_urlopen(url, timeout=None):
+    """urlopen that bypasses the Windows system proxy, for localhost ComfyUI connections."""
+    proxy_handler = _ureq_mod.ProxyHandler({})  # empty dict = no proxy
+    proxy_handler.proxies = {'http': None, 'https': None, 'ftp': None}  # force disable on Windows
+    opener = _ureq_mod.build_opener(proxy_handler)
+    kwargs = {'timeout': timeout} if timeout is not None else {}
+    return opener.open(url, **kwargs)
 
 
 def build_handler(context: dict):
@@ -218,7 +227,7 @@ def build_handler(context: dict):
         def _extract_prompt_output_paths(self, cfg: dict, prompt_id: str) -> list[str]:
             import urllib.request as _ureq
             comfy = str(cfg.get('comfyui_url', 'http://127.0.0.1:8188') or '').rstrip('/')
-            with _ureq.urlopen(comfy + '/history/' + str(prompt_id), timeout=3) as r:
+            with _comfy_urlopen(comfy + '/history/' + str(prompt_id), timeout=3) as r:
                 hist = json.loads(r.read())
             item = hist.get(str(prompt_id), {})
             status = item.get('status', {}) if isinstance(item, dict) else {}
@@ -246,7 +255,7 @@ def build_handler(context: dict):
             try:
                 import urllib.request as _ureq
                 comfy = str(cfg.get('comfyui_url', 'http://127.0.0.1:8188') or '').rstrip('/')
-                with _ureq.urlopen(comfy + '/progress', timeout=2) as r:
+                with _comfy_urlopen(comfy + '/progress', timeout=2) as r:
                     data = json.loads(r.read())
                 value = float((data or {}).get('value', 0) or 0)
                 maximum = float((data or {}).get('max', 0) or 0)
@@ -957,7 +966,7 @@ def build_handler(context: dict):
 
             comfy = str(cfg.get('comfyui_url', 'http://127.0.0.1:8188') or '').rstrip('/')
             try:
-                with _ureq.urlopen(comfy + '/system_stats', timeout=5) as r:
+                with _comfy_urlopen(comfy + '/system_stats', timeout=5) as r:
                     stats = json.loads(r.read())
                 pyver = str(stats.get('system', {}).get('python_version', '?'))
                 add_result('comfyui', 'ComfyUI Connection', 'ok', f'Connected (Python {pyver})')
@@ -1137,7 +1146,7 @@ def build_handler(context: dict):
             image_paths = {}
             queue_info = {'running': 0, 'pending': 0, 'position': None}
             try:
-                with _ureq.urlopen(comfy+'/history',timeout=3) as r:
+                with _comfy_urlopen(comfy+'/history',timeout=3) as r:
                     hist = json.loads(r.read())
                 for pid in ids:
                     if pid and pid in hist and hist[pid].get('status',{}).get('completed'):
@@ -1201,7 +1210,7 @@ def build_handler(context: dict):
             except Exception:
                 pass
             try:
-                with _ureq.urlopen(comfy+'/queue',timeout=3) as r:
+                with _comfy_urlopen(comfy+'/queue',timeout=3) as r:
                     q = json.loads(r.read())
                 running_list = q.get('queue_running', [])
                 pending_list = q.get('queue_pending', [])
@@ -1279,7 +1288,7 @@ def build_handler(context: dict):
                 if target == 'comfyui':
                     comfy = cfg.get('comfyui_url','http://127.0.0.1:8188').rstrip('/')
                     try:
-                        with _ureq.urlopen(comfy+'/system_stats', timeout=5) as r:
+                        with _comfy_urlopen(comfy+'/system_stats', timeout=5) as r:
                             stats = json.loads(r.read())
                         python_ver = stats.get('system',{}).get('python_version','?')
                         result = {'ok': True, 'message': f'ComfyUI ??OK (Python {python_ver})'}
@@ -1830,7 +1839,7 @@ def build_handler(context: dict):
                 comfy = cfg2.get('comfyui_url','http://127.0.0.1:8188').rstrip('/')
                 loras = []
                 try:
-                    with _ureq.urlopen(comfy+'/object_info/LoraLoader', timeout=5) as r:
+                    with _comfy_urlopen(comfy+'/object_info/LoraLoader', timeout=5) as r:
                         info = json.loads(r.read())
                     lora_name_field = info.get('LoraLoader',{}).get('input',{}).get('required',{}).get('lora_name')
                     print(f'[lora_list] lora_name_field type={type(lora_name_field)} len={len(lora_name_field) if lora_name_field else 0}')
@@ -3152,14 +3161,14 @@ def build_handler(context: dict):
             try:
                 import urllib.request as _ur
                 req = _ur.Request(comfyui_url.rstrip('/') + '/interrupt', data=b'', method='POST')
-                _ur.urlopen(req, timeout=1.5)
+                _comfy_urlopen(req, timeout=1.5)
                 req2 = _ur.Request(
                     comfyui_url.rstrip('/') + '/queue',
                     data=json.dumps({'clear': True}).encode(),
                     headers={'Content-Type': 'application/json'},
                     method='POST'
                 )
-                _ur.urlopen(req2, timeout=1.5)
+                _comfy_urlopen(req2, timeout=1.5)
             except Exception as e:
                 cancel_warn = str(e)
 
